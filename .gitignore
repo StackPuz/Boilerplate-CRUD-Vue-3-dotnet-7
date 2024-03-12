@@ -1,0 +1,4 @@
+/dotnet_api/bin
+/dotnet_api/obj
+/vue/node_modules
+/vue/package-lock.json
