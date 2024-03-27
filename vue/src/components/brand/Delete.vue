@@ -13,6 +13,23 @@
               <input readonly id="brand_name" name="Name" class="form-control form-control-sm" :value="brand.Name" required maxlength="50" />
             </div>
             <div class="col-12">
+              <h6>Brand's products</h6>
+              <table class="table table-sm table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="brandProduct in brandProducts" :key="brandProduct">
+                    <td>{{brandProduct.Name}}</td>
+                    <td class="text-right">{{brandProduct.Price}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-12">
               <router-link class="btn btn-sm btn-secondary" :to="getRef('/brand')">Cancel</router-link>
               <button class="btn btn-sm btn-danger">Delete</button>
             </div>
@@ -30,7 +47,8 @@ export default {
   name: 'BrandDelete',
   data() {
     return {
-      brand: {}
+      brand: {},
+      brandProducts: [],
     }
   },
   mounted() {
@@ -43,6 +61,7 @@ export default {
     get() {
       return Service.delete(this.$route.params.id).then(response => {
         this.brand = response.data.brand
+        this.brandProducts = response.data.brandProducts
       })
     },
     delete() {

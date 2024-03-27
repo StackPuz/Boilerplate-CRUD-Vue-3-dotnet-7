@@ -18,24 +18,16 @@
                 <thead>
                   <tr>
                     <th>Product Name</th>
-                    <th>Product Price</th>
-                    <th>Actions</th>
+                    <th>Price</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr v-for="brandProduct in brandProducts" :key="brandProduct">
                     <td>{{brandProduct.Name}}</td>
                     <td class="text-right">{{brandProduct.Price}}</td>
-                    <td class="text-center">
-                      <router-link class="btn btn-sm btn-secondary" :to="`/product/${brandProduct.Id}`" title="View"><i class="fa fa-eye"></i></router-link>
-                      <router-link class="btn btn-sm btn-primary" :to="`/product/edit/${brandProduct.Id}`" title="Edit"><i class="fa fa-pencil"></i></router-link>
-                      <router-link class="btn btn-sm btn-danger" :to="`/product/delete/${brandProduct.Id}`" title="Delete"><i class="fa fa-times"></i></router-link>
-                    </td>
                   </tr>
                 </tbody>
               </table>
-              <router-link class="btn btn-sm btn-primary" :to="`/product/create?product_brand_id=${brand.Id}`">Add</router-link>
-              <hr />
             </div>
             <div class="col-12">
               <router-link class="btn btn-sm btn-secondary" :to="getRef('/brand')">Back</router-link>

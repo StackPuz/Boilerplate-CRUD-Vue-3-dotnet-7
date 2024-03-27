@@ -23,7 +23,6 @@
                     <th>No</th>
                     <th>Product</th>
                     <th>Qty</th>
-                    <th>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -31,15 +30,9 @@
                     <td class="text-center">{{orderHeaderOrderDetail.No}}</td>
                     <td>{{orderHeaderOrderDetail.ProductName}}</td>
                     <td class="text-right">{{orderHeaderOrderDetail.Qty}}</td>
-                    <td class="text-center">
-                      <router-link class="btn btn-sm btn-primary" :to="`/orderDetail/edit/${orderHeaderOrderDetail.OrderId}/${orderHeaderOrderDetail.No}`" title="Edit"><i class="fa fa-pencil"></i></router-link>
-                      <router-link class="btn btn-sm btn-danger" :to="`/orderDetail/delete/${orderHeaderOrderDetail.OrderId}/${orderHeaderOrderDetail.No}`" title="Delete"><i class="fa fa-times"></i></router-link>
-                    </td>
                   </tr>
                 </tbody>
               </table>
-              <router-link class="btn btn-sm btn-primary" :to="`/orderDetail/create?order_detail_order_id=${orderHeader.Id}`">Add</router-link>
-              <hr />
             </div>
             <div class="col-12">
               <router-link class="btn btn-sm btn-secondary" :to="getRef('/orderHeader')">Back</router-link>

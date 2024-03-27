@@ -46,6 +46,7 @@
                 <td>{{brand.Name}}</td>
                 <td class="text-center">
                   <router-link class="btn btn-sm btn-secondary" :to="`/brand/${brand.Id}`" title="View"><i class="fa fa-eye"></i></router-link>
+                  <router-link class="btn btn-sm btn-primary" :to="`/brand/edit/${brand.Id}`" title="Edit"><i class="fa fa-pencil"></i></router-link>
                   <router-link class="btn btn-sm btn-danger" :to="`/brand/delete/${brand.Id}`" title="Delete"><i class="fa fa-times"></i></router-link>
                 </td>
               </tr>

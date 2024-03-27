@@ -17,6 +17,24 @@
               <input readonly id="order_header_order_date" name="OrderDate" class="form-control form-control-sm" :value="orderHeader.OrderDate" data-type="date" autocomplete="off" required />
             </div>
             <div class="col-12">
+              <table class="table table-sm table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Product</th>
+                    <th>Qty</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="orderHeaderOrderDetail in orderHeaderOrderDetails" :key="orderHeaderOrderDetail">
+                    <td class="text-center">{{orderHeaderOrderDetail.No}}</td>
+                    <td>{{orderHeaderOrderDetail.ProductName}}</td>
+                    <td class="text-right">{{orderHeaderOrderDetail.Qty}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="col-12">
               <router-link class="btn btn-sm btn-secondary" :to="getRef('/orderHeader')">Cancel</router-link>
               <button class="btn btn-sm btn-danger">Delete</button>
             </div>
@@ -34,7 +52,8 @@ export default {
   name: 'OrderHeaderDelete',
   data() {
     return {
-      orderHeader: {}
+      orderHeader: {},
+      orderHeaderOrderDetails: [],
     }
   },
   mounted() {
@@ -47,6 +66,7 @@ export default {
     get() {
       return Service.delete(this.$route.params.id).then(response => {
         this.orderHeader = response.data.orderHeader
+        this.orderHeaderOrderDetails = response.data.orderHeaderOrderDetails
       })
     },
     delete() {

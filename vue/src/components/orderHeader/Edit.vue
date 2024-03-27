@@ -22,6 +22,31 @@
               <span v-if="errors.OrderDate" class="text-danger">{{errors.OrderDate}}</span>
             </div>
             <div class="col-12">
+              <table class="table table-sm table-striped table-hover">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Product</th>
+                    <th>Qty</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="orderHeaderOrderDetail in orderHeaderOrderDetails" :key="orderHeaderOrderDetail">
+                    <td class="text-center">{{orderHeaderOrderDetail.No}}</td>
+                    <td>{{orderHeaderOrderDetail.ProductName}}</td>
+                    <td class="text-right">{{orderHeaderOrderDetail.Qty}}</td>
+                    <td class="text-center">
+                      <router-link class="btn btn-sm btn-primary" :to="`/orderDetail/edit/${orderHeaderOrderDetail.OrderId}/${orderHeaderOrderDetail.No}`" title="Edit"><i class="fa fa-pencil"></i></router-link>
+                      <router-link class="btn btn-sm btn-danger" :to="`/orderDetail/delete/${orderHeaderOrderDetail.OrderId}/${orderHeaderOrderDetail.No}`" title="Delete"><i class="fa fa-times"></i></router-link>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <router-link class="btn btn-sm btn-primary" :to="`/orderDetail/create?order_detail_order_id=${orderHeader.Id}`">Add</router-link>
+              <hr />
+            </div>
+            <div class="col-12">
               <router-link class="btn btn-sm btn-secondary" :to="getRef('/orderHeader')">Cancel</router-link>
               <button class="btn btn-sm btn-primary">Submit</button>
             </div>
@@ -40,6 +65,7 @@ export default {
   data() {
     return {
       orderHeader: {},
+      orderHeaderOrderDetails: [],
       customers: [],
       errors: {}
     }
@@ -54,6 +80,7 @@ export default {
     get() {
       return Service.edit(this.$route.params.id).then(response => {
         this.orderHeader = response.data.orderHeader
+        this.orderHeaderOrderDetails = response.data.orderHeaderOrderDetails
         this.customers = response.data.customers
       })
     },
