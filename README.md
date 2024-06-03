@@ -1,5 +1,5 @@
-# Backend-CRUD-Vue-3-dotnet-7
-Boilerplate Backend CRUD Web App created with Vue 3 + .NET 7 by [StackPuz](https://stackpuz.com).
+# Boilerplate-CRUD-Vue-3-dotnet-7
+Boilerplate CRUD Web App created with Vue 3 + .NET 7 by [StackPuz](https://stackpuz.com).
 
 ## Demo
 Checkout the live demo at https://demo-spa.stackpuz.com
@@ -21,8 +21,8 @@ Checkout the live demo at https://demo-spa.stackpuz.com
 - MySQL 5.7
 
 ## Installation
-1. Clone this repository. `git clone https://github.com/stackpuz/Backend-CRUD-Vue-3-dotnet-7.git .`
-2. Change directory to Vue project. `cd Backend-CRUD-Vue-3-dotnet-7/vue`
+1. Clone this repository. `git clone https://github.com/stackpuz/Boilerplate-CRUD-Vue-3-dotnet-7.git .`
+2. Change directory to Vue project. `cd Boilerplate-CRUD-Vue-3-dotnet-7/vue`
 3. Install the Vue dependencies. `npm install`
 4. Create a new database and run [/database.sql](/database.sql) script to create tables and import data.
 5. Edit the database configuration in [/dotnet_api/appsettings.json](/dotnet_api/appsettings.json) file.
